@@ -1,0 +1,151 @@
+:root {
+  --margin: 24px;
+  --max-width: 1440px;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --color-primary: #489dff;
+  --color-white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-poppins);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.header {
+  width: calc(100% - var(--margin) * 2);
+  margin: 0 auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f3f3f3;
+
+  &__logo {
+    width: 50px;
+    height: auto;
+  }
+}
+
+.main {
+  width: calc(100% - var(--margin) * 2);
+  max-width: var(--max-width);
+  margin: 0 auto;
+
+  &__title {
+    color: #1c1e23;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    margin: 20px 0 24px;
+  }
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-bottom: 24px;
+  justify-items: center;
+  gap: 24px 0;
+}
+
+.product {
+  max-width: 300px;
+  margin: 32px 6px 16px;
+
+  &__img {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 9px;
+    padding: 0 2px;
+  }
+
+  &__name {
+    letter-spacing: -0.01em;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 0 2px;
+    color: #333;
+  }
+
+  &__price {
+    margin: 2px 0 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-primary);
+    padding: 0 3px;
+  }
+
+  &__btn {
+    display: inline-block;
+    padding: 16px 50px;
+    background-color: var(--color-primary);
+    border-radius: 7px;
+    color: var(--color-white);
+    font-size: 15px;
+    line-height: 16px;
+    font-weight: 700;
+    font-family: var(--font-montserrat);
+  }
+}
+
+.footer {
+  width: calc(100% - 16px * 2);
+  margin: 0 auto;
+  border-top: 1px solid #f3f3f3;
+
+  &__container {
+    padding: 26px 8px 18px;
+    display: flex;
+    gap: 17px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__contact,
+  &__copy {
+    font-size: 12px;
+    color: #525f7f;
+    text-align: center;
+  }
+
+  &__contact > a {
+    color: #489dff;
+  }
+
+  &__networks {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 550px) {
+  :root {
+    --margin: 16px;
+  }
+
+  .main {
+    &__title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
