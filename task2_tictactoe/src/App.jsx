@@ -41,7 +41,7 @@ function App() {
 
     setWinSquares(winSquares);
     setWinner(winner);
-  }, [board, checkGame]);
+  }, [board]);
 
   function handleClick(i) {
     if (winner) return;
