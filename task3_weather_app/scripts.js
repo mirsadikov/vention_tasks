@@ -166,24 +166,24 @@ function formatDay(date) {
 function getWeaterIcon(status) {
   switch (status) {
     case 'Clouds':
-      return `/images/clouds.png`;
+      return `./images/clouds.png`;
 
     case 'Clear':
-      return `/images/clear.png`;
+      return `./images/clear.png`;
 
     case 'Rain':
-      return `/images/rain.png`;
+      return `./images/rain.png`;
 
     case 'Snow':
-      return `/images/snow.png`;
+      return `./images/snow.png`;
 
     case 'Drizzle':
-      return `/images/drizzle.png`;
+      return `./images/drizzle.png`;
 
     case 'Mist':
-      return `/images/mist.png`;
+      return `./images/mist.png`;
 
     default:
-      return `/images/clear.png`;
+      return `./images/clear.png`;
   }
 }
