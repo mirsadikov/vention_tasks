@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+    <script src="./scripts.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <input
+        type="text"
+        class="search"
+        placeholder="Search for cities"
+        onkeypress="search(event)" />
+    </header>
+    <main class="main">
+      <div class="location">
+        <div class="location__main">
+          <h2 class="location__name">-</h2>
+          <div class="location__sub">Today</div>
+          <h3 class="location__temp">00<span>&deg;</span></h3>
+        </div>
+        <div class="location__img-box">
+          <img src="/images/clear.png" alt="icon" class="location__img" />
+        </div>
+      </div>
+      <div class="todays box">
+        <h3 class="box__title">Today's forecast</h3>
+        <div class="todays__row">
+          <div class="todays__item">loading...</div>
+        </div>
+      </div>
+      <div class="details box">
+        <h3 class="box__title">Air conditions</h3>
+        <div class="details__container">
+          <div class="details__real">
+            <div class="details__header">
+              <img src="images/thermometer.png" alt="real" class="details__icon" />
+              <div class="details__title">Real feel</div>
+            </div>
+            <div class="details__value details__value--real">-</div>
+          </div>
+          <div class="details__humidity">
+            <div class="details__header">
+              <img src="images/humidity.png" alt="humidity" class="details__icon" />
+              <div class="details__title">Humidity</div>
+            </div>
+            <div class="details__value details__value--humidity">-</div>
+          </div>
+          <div class="details__wind">
+            <div class="details__header">
+              <img src="images/wind.png" alt="wind" class="details__icon" />
+              <div class="details__title">Wind</div>
+            </div>
+            <div class="details__value details__value--wind">-</div>
+          </div>
+          <div class="details__pressure">
+            <div class="details__header">
+              <img src="images/pressure.png" alt="pressure" class="details__icon" />
+              <div class="details__title">Pressure</div>
+            </div>
+            <div class="details__value details__value--pressure">-</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <aside class="aside box">
+      <h3 class="box__title">7-day forecast</h3>
+      <div class="days">
+        <div class="days__item">loading...</div>
+      </div>
+    </aside>
+  </body>
+</html>
