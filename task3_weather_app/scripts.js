@@ -19,18 +19,24 @@ window.addEventListener('load', () => {
   let lat;
 
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition((position) => {
-      long = position.coords.longitude;
-      lat = position.coords.latitude;
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        long = position.coords.longitude;
+        lat = position.coords.latitude;
 
-      fetch(
-        `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=5&appid=${API_KEY}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          fetchWeatherData(lat, long, data[0].name);
-        });
-    });
+        fetch(
+          `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=5&appid=${API_KEY}`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            fetchWeatherData(lat, long, data[0].name);
+          });
+      },
+      () => {
+        getResults('Tashkent');
+        alert('Location permission denied. Default location is Tashkent');
+      }
+    );
   }
 });
 
@@ -44,7 +50,9 @@ const search = (event) => {
 
 // data fetch
 function getResults(cityName) {
-  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=10&appid=${API_KEY}`)
+  return fetch(
+    `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=10&appid=${API_KEY}`
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data.length === 0) {
@@ -58,7 +66,7 @@ function getResults(cityName) {
 }
 
 function fetchWeatherData(lat, long, cityName) {
-  fetch(
+  return fetch(
     `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`
   )
     .then((res) => res.json())
