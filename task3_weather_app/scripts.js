@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
       lat = position.coords.latitude;
 
       fetch(
-        `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=5&appid=${API_KEY}`
+        `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=5&appid=${API_KEY}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -44,7 +44,7 @@ const search = (event) => {
 
 // data fetch
 function getResults(cityName) {
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=10&appid=${API_KEY}`)
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=10&appid=${API_KEY}`)
     .then((res) => res.json())
     .then((data) => {
       if (data.length === 0) {
